@@ -13,6 +13,8 @@ class _DataTypeState extends State<DateType> {
     _stringType();
     _boolType();
     _listType();
+    _mapType();
+    _tips();
 
     return Container(
       child: Text('常用数据类型，请查看控制台输出'),
@@ -70,14 +72,64 @@ class _DataTypeState extends State<DateType> {
     print(list4);
 
     ///集合遍历的方式
-    for(int i=0;i<list.length;i++) {
+    for (int i = 0; i < list.length; i++) {
       print(list[i]);
     }
-    for(var o in list) {
+    for (var o in list) {
       print(o);
     }
     list.forEach((element) {
       print(element);
     });
+  }
+
+  ///Map
+  _mapType() {
+    print('----_mapType----');
+    Map names = {'xiaoming': '小明', 'xiaohong': '小红'};
+    print(names);
+
+    Map ages = {};
+    ages['xiaoming'] = 16;
+    ages['xiaohong'] = 18;
+    print(ages);
+
+    ///Map遍历
+    ages.forEach((key, value) {
+      print('$key,$value');
+    });
+    //将原来的map转换为一个新的map
+    Map ages2 = ages.map((key, value) {
+      return MapEntry(value, key);
+    });
+    print(ages2);
+    //for循环遍历
+    for (var key in ages.keys) {
+      print('$key ${ages[key]}');
+    }
+  }
+
+  ///科普小知识：dynamic、var、Object三者区别
+  _tips() {
+    print('----_tips----');
+
+    ///dynamic 动态数据类型，运行时才知道类型，编译时可调用本身不存在的方法，运行时才报错，带来安全隐患，
+    ///会使dart代码检查失效，不要直接使用
+    dynamic x = 'hal';
+    print(x.runtimeType);
+    print(x);
+    x = 123;
+    print(x);
+    x.foo;
+
+    ///var 关键字，与dynamic区别是，var的类型一旦确定，不可被修改
+    var a = 'var';
+    print(a.runtimeType);
+    print(a);
+
+    ///Object dart对象的基类，与dynamic区别是，Object类型是确定的，编译时不可调用不存在的方法
+    Object o1 = '111';
+    print(o1.runtimeType);
+    print(o1);
   }
 }
