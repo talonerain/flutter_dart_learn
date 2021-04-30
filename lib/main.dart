@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dart_learn/data_type.dart';
+import 'package:flutter_dart_learn/oop_learn.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'F Demo Home Page'),
     );
   }
 }
@@ -39,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _oopLearn();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -48,5 +50,21 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[DateType()],
       )),
     );
+  }
+
+  void _oopLearn() {
+    print('----_oopLearn()----');
+    Logger log1 = Logger();
+    Logger log2 = Logger();
+    print(log1 == log2);
+
+    Student.doPrint('_oopLearn');
+    //创建Student对象
+    Student stu1 = Student('清华', 'Jack', 18);
+    stu1.school = '985';
+    print(stu1.toString());
+
+    Student stu2 = Student('北大', 'Tom', 16, city: '上海', country: '中国');
+    print(stu2.toString());
   }
 }

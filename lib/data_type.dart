@@ -120,7 +120,7 @@ class _DataTypeState extends State<DateType> {
     print(x);
     x = 123;
     print(x);
-    x.foo;
+    //x.foo; //直接调用不存在的方法编译不会报错，运行时会报错
 
     ///var 关键字，与dynamic区别是，var的类型一旦确定，不可被修改
     var a = 'var';
