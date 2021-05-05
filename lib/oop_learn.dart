@@ -83,3 +83,28 @@ class Person {
     return 'name:$name, age:$age';
   }
 }
+
+/// 继承抽象类要实现它的抽象方法，否则也需要将自己定义成抽象类
+class StudyFlutter extends Study {
+  @override
+  void study() {
+    print('Learning Flutter');
+  }
+}
+
+///使用abstract修饰符来定义一个抽象类，该类不能被实例化，抽象类在定义接口的时候非常有用
+///抽象类可以没有抽象方法，但是有抽象方法的类一定要被标识为抽象类
+abstract class Study {
+  void study();
+}
+
+///为类添加特征：mixins
+///要是用mixins，在with关键字后面跟上一个或多个mixin的名字（用逗号分隔），并且with要在extends关键字之后
+///mixins特征：实现mixin，要创建一个继承Object的子类，不声明任何构造方法，不调用super，与抽象不抽象无关
+///上面的Study就是一个mixin
+class Test extends Person with Study {
+  Test(String name, int age) : super(name, age);
+
+  @override
+  void study() {}
+}
