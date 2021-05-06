@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dart_learn/Function_learn.dart';
 import 'package:flutter_dart_learn/data_type.dart';
+import 'package:flutter_dart_learn/generic_learn.dart';
 import 'package:flutter_dart_learn/oop_learn.dart';
 
 void main() {
@@ -42,7 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     //_oopLearn();
-    _functionLearn();
+    //_functionLearn();
+    _genericLearn();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -77,5 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
     print('----_functionLearn()----');
     TestFunction testFunction = TestFunction();
     testFunction.start();
+  }
+
+  void _genericLearn() {
+    TestGeneric testGeneric = TestGeneric();
+    testGeneric.start();
   }
 }

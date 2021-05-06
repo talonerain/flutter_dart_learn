@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.my.flutter_dart_learn">
    <application
-        android:label="flutter_dart_learn"
+        android:label="f_d_learn"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
